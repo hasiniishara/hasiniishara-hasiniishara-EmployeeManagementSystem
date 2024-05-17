@@ -4,6 +4,8 @@ const mongoose = require("mongoose");
 const passport = require("passport");
 const authRoutes = require('./routes/authRoute')
 const passportConfig = require('./middleware/passportConfig')
+const { swaggerUi, swaggerDocs } = require('./swagger');
+
 
 const app = express();
 
@@ -12,6 +14,7 @@ passportConfig(passport);
 // middle ware
 app.use(express.json());
 app.use(passport.initialize())
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 app.use((req, res, next)=>{
   console.log(req.path, req.method)
