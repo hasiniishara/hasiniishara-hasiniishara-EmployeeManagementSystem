@@ -1,6 +1,7 @@
 # hasiniishara-hasiniishara-EmployeeManagementSystem
 
 *Setup backend part
+npm init -y
 npm install
 npm install express mongoose dotenv nodemon
 npm i bcryptjs jsonwebtoken
